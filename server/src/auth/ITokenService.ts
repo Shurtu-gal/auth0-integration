@@ -5,5 +5,5 @@ export interface ITokenPayload {
 }
 
 export interface ITokenService {
-  createToken: ({ id, username, password }: ITokenPayload) => Promise<string>;
+  // createToken: ({ id, username, password }: ITokenPayload) => Promise<string>;
 }

@@ -36,11 +36,7 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException("The passed credentials are incorrect");
     }
-    const accessToken = await this.tokenService.createToken({
-      id: user.id,
-      username,
-      password,
-    });
+    const accessToken = "TODO"
     return {
       accessToken,
       ...user,
