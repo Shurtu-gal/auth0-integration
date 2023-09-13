@@ -29,7 +29,11 @@ import { EmptyList } from "./empty/EmptyList";
 import { EmptyCreate } from "./empty/EmptyCreate";
 import { EmptyEdit } from "./empty/EmptyEdit";
 import { EmptyShow } from "./empty/EmptyShow";
-import { httpAuthProvider } from "./auth-provider/ra-auth-http";
+import { Auth0AuthProvider } from "./auth-provider/ra-auth-auth0";
+import { createBrowserHistory as createHistory } from "history";
+import { BrowserRouter } from "react-router-dom";
+
+const history = createHistory();
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -47,57 +51,60 @@ const App = (): React.ReactElement => {
   }
   return (
     <div className="App">
-      <Admin
-        title={"Sample Application"}
-        dataProvider={dataProvider}
-        authProvider={httpAuthProvider}
-        theme={theme}
-        dashboard={Dashboard}
-        loginPage={Login}
-      >
-        <Resource
-          name="User"
-          list={UserList}
-          edit={UserEdit}
-          create={UserCreate}
-          show={UserShow}
-        />
-        <Resource
-          name="Profile"
-          list={ProfileList}
-          edit={ProfileEdit}
-          create={ProfileCreate}
-          show={ProfileShow}
-        />
-        <Resource
-          name="Order"
-          list={OrderList}
-          edit={OrderEdit}
-          create={OrderCreate}
-          show={OrderShow}
-        />
-        <Resource
-          name="Organization"
-          list={OrganizationList}
-          edit={OrganizationEdit}
-          create={OrganizationCreate}
-          show={OrganizationShow}
-        />
-        <Resource
-          name="Customer"
-          list={CustomerList}
-          edit={CustomerEdit}
-          create={CustomerCreate}
-          show={CustomerShow}
-        />
-        <Resource
-          name="Empty"
-          list={EmptyList}
-          edit={EmptyEdit}
-          create={EmptyCreate}
-          show={EmptyShow}
-        />
-      </Admin>
+      <BrowserRouter>
+        <Admin
+          history={history}
+          title={"Sample Application"}
+          dataProvider={dataProvider}
+          authProvider={Auth0AuthProvider}
+          theme={theme}
+          dashboard={Dashboard}
+          loginPage={Login}
+        >
+          <Resource
+            name="User"
+            list={UserList}
+            edit={UserEdit}
+            create={UserCreate}
+            show={UserShow}
+          />
+          <Resource
+            name="Profile"
+            list={ProfileList}
+            edit={ProfileEdit}
+            create={ProfileCreate}
+            show={ProfileShow}
+          />
+          <Resource
+            name="Order"
+            list={OrderList}
+            edit={OrderEdit}
+            create={OrderCreate}
+            show={OrderShow}
+          />
+          <Resource
+            name="Organization"
+            list={OrganizationList}
+            edit={OrganizationEdit}
+            create={OrganizationCreate}
+            show={OrganizationShow}
+          />
+          <Resource
+            name="Customer"
+            list={CustomerList}
+            edit={CustomerEdit}
+            create={CustomerCreate}
+            show={CustomerShow}
+          />
+          <Resource
+            name="Empty"
+            list={EmptyList}
+            edit={EmptyEdit}
+            create={EmptyCreate}
+            show={EmptyShow}
+          />
+        </Admin>
+      </BrowserRouter>
     </div>
   );
 };
