@@ -29,13 +29,14 @@ import { EmptyUpdateInput } from "./EmptyUpdateInput";
 import { Empty } from "./Empty";
 
 @swagger.ApiBasicAuth()
-@common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
+// @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class EmptyControllerBase {
   constructor(
     protected readonly service: EmptyService,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
-  @common.UseInterceptors(AclValidateRequestInterceptor)
+  // @common.UseInterceptors(AclValidateRequestInterceptor)
+  @common.UseGuards(defaultAuthGuard.DefaultAuthGuard)
   @common.Post()
   @swagger.ApiCreatedResponse({ type: Empty })
   @nestAccessControl.UseRoles({
