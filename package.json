@@ -1,0 +1,29 @@
+{
+  "name": "auth0-integration",
+  "version": "1.0.0",
+  "description": "This is a sample project to test Auth0 integration with NestJS for creation of a plugin.",
+  "main": "index.js",
+ "scripts": {
+    "prepare": "husky install",
+    "install": "./run-many.sh \"npm install\""
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Shurtu-gal/auth0-integration.git"
+  },
+  "keywords": [
+    "Auth0",
+    "NestJS",
+    "Amplication"
+  ],
+  "author": "Ashish Padhy <100484401+Shurtu-gal@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shurtu-gal/auth0-integration/issues"
+  },
+  "homepage": "https://github.com/Shurtu-gal/auth0-integration#readme"
+}
