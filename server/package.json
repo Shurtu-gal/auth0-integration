@@ -2,6 +2,7 @@
   "name": "@auth0-integration/server",
   "version": "1.0.0",
   "private": false,
+  "license": "MIT",
   "scripts": {
     "start": "nest start",
     "start:watch": "nest start --watch",

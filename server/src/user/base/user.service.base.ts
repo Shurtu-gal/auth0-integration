@@ -44,7 +44,6 @@ export class UserServiceBase {
 
       data: {
         ...args.data,
-        // password: await this.passwordService.hash(args.data.password),
       },
     });
   }

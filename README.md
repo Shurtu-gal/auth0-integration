@@ -62,11 +62,9 @@ Follow the instructions in the individual README.md files in the [Admin-UI](./ad
 
     ```js
     exports.onExecutePostLogin = async (event, api) => {
-      console.log(event.user);
       if (event.authorization) {
         // Set claims
-        api.accessToken.setCustomClaim(`name`, event.user.name);
-        api.accessToken.setCustomClaim(`email`, event.user.email);
+        api.accessToken.setCustomClaim("user", event.user);
       }
     };
     ```
@@ -77,24 +75,30 @@ Follow the instructions in the individual README.md files in the [Admin-UI](./ad
 
 ### Create an admin user in the postgres database
 
-- Go to the terminal of your docker container and run the following commanf to get into the postgres database :-
+- Go to [CustomSeed](./server/scripts/customSeed.ts) and add user details as follows :-
 
-  ```sh
-  $ psql -U admin -d admin
+  ```js
+  const user = {
+    name: "YOUR_NAME",
+    email: "YOUR_EMAIL",
+    roles: ["user"], // TODO: Add a default role
+    username: "YOUR_USERNAME"
+    age: 0,
+    birthDate: new Date(),
+    score: 0,
+    interests: [],
+    priority: "low",
+    isCurious: false,
+    location: "(32.085300, 34.781769)",
+    bio: "YOUR BIO",
+    extendedProperties: {},
+  };
   ```
 
-- Change database to the one created for the project :-
+- Then run the following command to seed the database :-
 
   ```sh
-  $ \c my-db
-  ```
-
-- Create a new user with the following command :-
-
-  ```sh
-  # Replace the values with your own
-  $ INSERT INTO user ("id", "name", "bio", "email", "age", "birthDate", "score", "managerId", "interests", "priority", "isCurious", "location", "extendedProperties", "profileId", "username", "password", "roles")
-  VALUES ('your_user_id', 'Ashish Padhy', 'This is a bio', 'ashishpadhy1729@gmail.com', 30, '1993-09-14T00:00:00Z', 4.5, NULL, ARRAY['programming']::"EnumUserInterests"[], 'EnumUserPriorityValue', TRUE, 'LocationValue', '{}', NULL, 'ashishpadhy', 'hashed_password', '["admin"]');
+  $ npm run seed
   ```
 
 - The user can now login with the email in Auth0.

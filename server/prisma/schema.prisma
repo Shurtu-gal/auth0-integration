@@ -27,7 +27,6 @@ model User {
   profile            Profile?            @relation(fields: [profileId], references: [id])
   profileId          Int?                @unique
   username           String              @unique
-  password           String
   roles              Json
 
   @@unique([name(sort: Desc), email])
