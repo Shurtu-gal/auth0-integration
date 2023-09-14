@@ -2,6 +2,7 @@
   "name": "@auth0-integration/admin",
   "version": "1.0.0",
   "private": false,
+  "license": "MIT",
   "dependencies": {
     "@apollo/client": "3.6.9",
     "@auth0/auth0-spa-js": "^2.1.2",

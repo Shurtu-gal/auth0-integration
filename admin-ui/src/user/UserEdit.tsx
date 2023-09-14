@@ -53,8 +53,8 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
           label="Interests"
           source="interests"
           choices={[
-            { label: "Programming", value: "programming" },
-            { label: "Design", value: "design" },
+            { label: "Programming", value: "Programming" },
+            { label: "Design", value: "Design" },
           ]}
           optionText="label"
           optionValue="value"
@@ -63,9 +63,9 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
           source="priority"
           label="Priority"
           choices={[
-            { label: "High", value: "high" },
-            { label: "Medium", value: "medium" },
-            { label: "Low", value: "low" },
+            { label: "High", value: "High" },
+            { label: "Medium", value: "Medium" },
+            { label: "Low", value: "Low" },
           ]}
           optionText="label"
           optionValue="value"
